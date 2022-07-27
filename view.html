@@ -28,6 +28,46 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 <link rel="stylesheet" href="styles.css">
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
 </head>
 
 <body>
@@ -154,10 +194,7 @@
              <!-- END profile-header-content -->
              <!-- BEGIN profile-header-tab -->
              <ul class="profile-header-tab nav nav-tabs">
-                <li class="nav-item"><a href="" target="__blank" class="nav-link_ active show">PERSONAL</a></li>
-                <li class="nav-item"><a href="" target="__blank" class="nav-link_">PROFESSIONAL</a></li>
-                <li class="nav-item"><a href="" target="__blank" class="nav-link_">ABOUT</a></li>
-                <li class="nav-item"><a href="" target="__blank" class="nav-link_">ADDITIONAL</a></li>
+               
                
              </ul>
              <!-- END profile-header-tab -->
@@ -172,129 +209,359 @@
              <!-- begin #profile-about tab -->
              <div class="tab-pane fade in active show" id="profile-about">
                 <!-- begin table -->
-                <div class="table-responsive">
-                   <table class="table table-profile">
-                      <thead>
-                         <tr>
-                            <th></th>
-                            <th>
-                               <h4>John Henry <small>Lorraine Stokes</small></h4>
-                            </th>
-                         </tr>
-                      </thead>
-                      <tbody>
-                         <tr class="highlight">
-                            <td class="field">Name</td>
-                            <td><a href="javascript:;">Add Mood Message</a></td>
-                         </tr>
-                         <tr class="divider">
-                            <td colspan="2"></td>
-                         </tr>
-                         <tr>
-                            <td class="field">Mobile</td>
-                            <td><i class="fa fa-mobile fa-lg m-r-5"></i> +1-(847)- 367-8924 <a href="javascript:;" class="m-l-5">Edit</a></td>
-                         </tr>
-                         <tr>
-                            <td class="field">Home</td>
-                            <td><a href="javascript:;">Add Number</a></td>
-                         </tr>
-                         <tr>
-                            <td class="field">Office</td>
-                            <td><a href="javascript:;">Add Number</a></td>
-                         </tr>
-                         <tr class="divider">
-                            <td colspan="2"></td>
-                         </tr>
-                         <tr class="highlight">
-                            <td class="field">About Me</td>
-                            <td><a href="javascript:;">Add Description</a></td>
-                         </tr>
-                         <tr class="divider">
-                            <td colspan="2"></td>
-                         </tr>
-                         <tr>
-                            <td class="field">Country/Region</td>
-                            <td>
-                               <select class="form-control input-inline input-xs" name="region">
-                                  <option value="US" selected="">United State</option>
-                                  <option value="AF">Afghanistan</option>
-                                  <option value="AL">Albania</option>
-                                  <option value="DZ">Algeria</option>
-                                  <option value="AS">American Samoa</option>
-                                  <option value="AD">Andorra</option>
-                                  <option value="AO">Angola</option>
-                                  <option value="AI">Anguilla</option>
-                                  <option value="AQ">Antarctica</option>
-                                  <option value="AG">Antigua and Barbuda</option>
-                               </select>
-                            </td>
-                         </tr>
-                         <tr>
-                            <td class="field">City</td>
-                            <td>Los Angeles</td>
-                         </tr>
-                         <tr>
-                            <td class="field">State</td>
-                            <td><a href="javascript:;">Add State</a></td>
-                         </tr>
-                         <tr>
-                            <td class="field">Website</td>
-                            <td><a href="javascript:;">Add Webpage</a></td>
-                         </tr>
-                         <tr>
-                            <td class="field">Gender</td>
-                            <td>
-                               <select class="form-control input-inline input-xs" name="gender">
-                                  <option value="male">Male</option>
-                                  <option value="female">Female</option>
-                               </select>
-                            </td>
-                         </tr>
-                         <tr>
-                            <td class="field">Birthdate</td>
-                            <td>
-                               <select class="form-control input-inline input-xs" name="day">
-                                  <option value="04" selected="">04</option>
-                               </select>
-                               -
-                               <select class="form-control input-inline input-xs" name="month">
-                                  <option value="11" selected="">11</option>
-                               </select>
-                               -
-                               <select class="form-control input-inline input-xs" name="year">
-                                  <option value="1989" selected="">1989</option>
-                               </select>
-                            </td>
-                         </tr>
-                         <tr>
-                            <td class="field">Language</td>
-                            <td>
-                               <select class="form-control input-inline input-xs" name="language">
-                                  <option value="" selected="">English</option>
-                               </select>
-                            </td>
-                         </tr>
-                         <tr class="divider">
-                            <td colspan="2"></td>
-                         </tr>
-                         <tr class="highlight">
-                            <td class="field">&nbsp;</td>
-                            <td class="p-t-10 p-b-10">
-                               <button type="submit" class="buttonview" >save</button>
-                               <button type="submit" class="buttonview">cancel</button>
-                            </td>
-                         </tr>
-                      </tbody>
-                   </table>
-                </div>
-                <!-- end table -->
+                <div class="tab">
+                  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Utility</button>
+                  <button class="tablinks" onclick="openCity(event, 'Paris')">Personal</button>
+                  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Additional</button>
+                </div> 
              </div>
              <!-- end #profile-about tab -->
           </div>
           <!-- end tab-content -->
        </div>
        <!-- end profile-content -->
-
+       <div id="London" class="tabcontent">
+        
+        <!-- begin table -->
+        <div class="table-responsive">
+         <table class="table table-profile">
+            <thead>
+               <tr>
+                  <th></th>
+                  <th>
+                     <h4>John Henry <small>Lorraine Stokes</small></h4>
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="highlight">
+                  <td class="field">Utility Name</td>
+                  <td><a href="javascript:;">Name</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr>
+                  <td class="field">Mobile</td>
+                  <td><i class="fa fa-mobile fa-lg m-r-5"></i> +1-(847)- 367-8924 <a href="javascript:;" class="m-l-5">Edit</a></td>
+               </tr>
+               <tr>
+                  <td class="field">District</td>
+                  <td><a href="javascript:;">Add</a></td>
+               </tr>
+               <tr>
+                  <td class="field">State</td>
+                  <td><a href="javascript:;">Add Number</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr class="highlight">
+                  <td class="field">Acronym</td>
+                  <td><a href="javascript:;">Add Description</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               
+               <tr>
+                  <td class="field">City</td>
+                  <td>Los Angeles</td>
+               </tr>
+               <tr>
+                  <td class="field">State</td>
+                  <td><a href="javascript:;">Add State</a></td>
+               </tr>
+              
+               <tr>
+                  <td class="field">Country</td>
+                
+                  <td><a href="javascript:;">Add Description</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Address</td>
+                  <td><a href="javascript:;">Add</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Language</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="language">
+                        <option value="" selected="">English</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr class="highlight">
+                  <td class="field">&nbsp;</td>
+                  <td class="p-t-10 p-b-10">
+                     <button type="submit" class="buttonview" >save</button>
+                     <button type="submit" class="buttonview">cancel</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+       </div>
+       
+       <div id="Paris" class="tabcontent">
+        <!-- begin table -->
+        <div class="table-responsive">
+         <table class="table table-profile">
+            <thead>
+               <tr>
+                  <th></th>
+                  <th>
+                     <h4>John Henry <small>Lorraine Stokes</small></h4>
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="highlight">
+                  <td class="field">Name</td>
+                  <td><a href="javascript:;">Add Mood Message</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr>
+                  <td class="field">Mobile</td>
+                  <td><i class="fa fa-mobile fa-lg m-r-5"></i> +1-(847)- 367-8924 <a href="javascript:;" class="m-l-5">Edit</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Home</td>
+                  <td><a href="javascript:;">Add Number</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Office</td>
+                  <td><a href="javascript:;">Add Number</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr class="highlight">
+                  <td class="field">About Me</td>
+                  <td><a href="javascript:;">Add Description</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr>
+                  <td class="field">Country/Region</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="region">
+                        <option value="US" selected="">United State</option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AL">Albania</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="AD">Andorra</option>
+                        <option value="AO">Angola</option>
+                        <option value="AI">Anguilla</option>
+                        <option value="AQ">Antarctica</option>
+                        <option value="AG">Antigua and Barbuda</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="field">City</td>
+                  <td>Los Angeles</td>
+               </tr>
+               <tr>
+                  <td class="field">State</td>
+                  <td><a href="javascript:;">Add State</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Website</td>
+                  <td><a href="javascript:;">Add Webpage</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Gender</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="field">Birthdate</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="day">
+                        <option value="04" selected="">04</option>
+                     </select>
+                     -
+                     <select class="form-control input-inline input-xs" name="month">
+                        <option value="11" selected="">11</option>
+                     </select>
+                     -
+                     <select class="form-control input-inline input-xs" name="year">
+                        <option value="1989" selected="">1989</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="field">Language</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="language">
+                        <option value="" selected="">English</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr class="highlight">
+                  <td class="field">&nbsp;</td>
+                  <td class="p-t-10 p-b-10">
+                     <button type="submit" class="buttonview" >save</button>
+                     <button type="submit" class="buttonview">cancel</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+       </div>
+       
+       <div id="Tokyo" class="tabcontent">
+         
+        <!-- begin table -->
+        <div class="table-responsive">
+         <table class="table table-profile">
+            <thead>
+               <tr>
+                  <th></th>
+                  <th>
+                     <h4>John Henry <small>Lorraine Stokes</small></h4>
+                  </th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr class="highlight">
+                  <td class="field">Name</td>
+                  <td><a href="javascript:;">Add Mood Message</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr>
+                  <td class="field">Mobile</td>
+                  <td><i class="fa fa-mobile fa-lg m-r-5"></i> +1-(847)- 367-8924 <a href="javascript:;" class="m-l-5">Edit</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Home</td>
+                  <td><a href="javascript:;">Add Number</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Office</td>
+                  <td><a href="javascript:;">Add Number</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr class="highlight">
+                  <td class="field">About Me</td>
+                  <td><a href="javascript:;">Add Description</a></td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr>
+                  <td class="field">Country/Region</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="region">
+                        <option value="US" selected="">United State</option>
+                        <option value="AF">Afghanistan</option>
+                        <option value="AL">Albania</option>
+                        <option value="DZ">Algeria</option>
+                        <option value="AS">American Samoa</option>
+                        <option value="AD">Andorra</option>
+                        <option value="AO">Angola</option>
+                        <option value="AI">Anguilla</option>
+                        <option value="AQ">Antarctica</option>
+                        <option value="AG">Antigua and Barbuda</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="field">City</td>
+                  <td>Los Angeles</td>
+               </tr>
+               <tr>
+                  <td class="field">State</td>
+                  <td><a href="javascript:;">Add State</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Website</td>
+                  <td><a href="javascript:;">Add Webpage</a></td>
+               </tr>
+               <tr>
+                  <td class="field">Gender</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="field">Birthdate</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="day">
+                        <option value="04" selected="">04</option>
+                     </select>
+                     -
+                     <select class="form-control input-inline input-xs" name="month">
+                        <option value="11" selected="">11</option>
+                     </select>
+                     -
+                     <select class="form-control input-inline input-xs" name="year">
+                        <option value="1989" selected="">1989</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td class="field">Language</td>
+                  <td>
+                     <select class="form-control input-inline input-xs" name="language">
+                        <option value="" selected="">English</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr class="divider">
+                  <td colspan="2"></td>
+               </tr>
+               <tr class="highlight">
+                  <td class="field">&nbsp;</td>
+                  <td class="p-t-10 p-b-10">
+                     <button type="submit" class="buttonview" >save</button>
+                     <button type="submit" class="buttonview">cancel</button>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+       </div>
+       
+       <script>
+       function openCity(evt, cityName) {
+         var i, tabcontent, tablinks;
+         tabcontent = document.getElementsByClassName("tabcontent");
+         for (i = 0; i < tabcontent.length; i++) {
+           tabcontent[i].style.display = "none";
+         }
+         tablinks = document.getElementsByClassName("tablinks");
+         for (i = 0; i < tablinks.length; i++) {
+           tablinks[i].className = tablinks[i].className.replace(" active", "");
+         }
+         document.getElementById(cityName).style.display = "block";
+         evt.currentTarget.className += " active";
+       }
+       // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+       </script>
+          
        
 
         
@@ -308,9 +575,21 @@
 
 
   
-  <script type="text/javascript">
-  
-  </script>
+<script>
+   function openCity(evt, cityName) {
+     var i, tabcontent, tablinks;
+     tabcontent = document.getElementsByClassName("tabcontent");
+     for (i = 0; i < tabcontent.length; i++) {
+       tabcontent[i].style.display = "none";
+     }
+     tablinks = document.getElementsByClassName("tablinks");
+     for (i = 0; i < tablinks.length; i++) {
+       tablinks[i].className = tablinks[i].className.replace(" active", "");
+     }
+     document.getElementById(cityName).style.display = "block";
+     evt.currentTarget.className += " active";
+   }
+   </script>
 </body>
 
 <script src="js/create.js"></script>

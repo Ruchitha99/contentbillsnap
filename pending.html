@@ -22,6 +22,13 @@
     href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet" />
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+
 </head>
 
 <body>
@@ -122,100 +129,38 @@
       
     </div>
     <div class="col right" id="customer-list">
-      <h2 class="ps-1 pt-3" id="pspt">Pending Approvals</h2><br>
-      <div class="table-responsive">
-        <table class="table table-bordered" id='table_filter'>
-          <thead>
-              <tr>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
-                  <th>Status</th>
-                  
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td>Alfreds </td>
-                  <td>Futterkiste</td>
-                  <td>Futterkiste@example.com</td>
-                  <td>Pending</td>
-                 
-              </tr>
-              <tr>
-                  <td>Ana Trujillo</td>
-                  <td>Emparedados </td>
-                  <td>Emparedados @example.com</td>
-                  <td>Done</td>
-                 
-              </tr>
-              <tr>
-                  <td>July</td>
-                  <td>Horn</td>
-                  <td>Horn@example.com</td>
-                  <td>Pending</td>
-                 
-              </tr>
-              <tr>
-                  <td>Berglunds </td>
-                  <td>snabbköp</td>
-                  <td>snabbköp@example.com</td>
-                  <td>Pending</td>
-                  
-              <tr>
-                  <td>Blauer </td>
-                  <td>Delikatessen </td>
-                  <td>Delikatessen@example.com</td>
-                  <td>Done</td>
-                 
-              </tr>
-              <tr>
-                  <td>Blondel </td>
-                  <td>père </td>
-                  <td>père@example.com</td>
-                  <td>Pending</td>
-                 
-              </tr>
-              <tr>
-                  <td>Bólido </td>
-                  <td>Comidas </td>
-                  <td>Comidas@example.com</td>
-                  <td>Done</td>
-                 
-              </tr>
-              <tr>
-                  <td>Bon </td>
-                  <td>app</td>
-                  <td>app@example.com</td>
-                  <td>Done</td>
-                  
-              </tr>
-              <tr>
-                  <td>Dollar </td>
-                  <td>Marketse</td>
-                  <td>Marketse@example.com</td>
-                  <td>Pending</td>
-                  
-              </tr>
-          </tbody>
-      </table>
-
-      </div>
+        <h4>Pending Approvals</h4>
+        <table class="table table-fluid" id="myTable">
+        <thead>
+        <tr><th>Name</th><th>Email</th><th>Password</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Daniel Danny</td><td>danny.daniel@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Samuel</td><td>samuel@gmail.com</td><td>Pass1234</td><td>Done</td></tr>
+        <tr><td>Jack</td><td>jack@gmail.com</td><td>Pass1234</td><td>Approved</td></tr>
+        <tr><td>Eureka</td><td>eureka@gmail.com</td><td>Pass1234</td><td>Pendig</td></tr>
+        <tr><td>Pinky</td><td>pinky@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Mishti</td><td>mishti@gmail.com</td><td>Pass1234</td><td>Done</td></tr>
+        <tr><td>Puneet</td><td>puneet@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Nick</td><td>nick@gmail.com</td><td>Pass1234</td><td>Done</td></tr>
+        <tr><td>Danika</td><td>danika@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Vishakha</td><td>vishakha@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Nitin</td><td>ni3@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Latika</td><td>latika@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        <tr><td>Kaavya</td><td>kaavya@gmail.com</td><td>Pass1234</td><td>Done</td></tr>
+        <tr><td>Ishika</td><td>ishika@gmail.com</td><td>Pass1234</td><td>Done</td></tr>
+        <tr><td>Veronika</td><td>veronika@gmail.com</td><td>Pass1234</td><td>Pending</td></tr>
+        </tbody>
+        </table>
+    </div>
+    
+    <script>
+        $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+    </script>
      
-     <br>
-        <div class = "demo1">
-           <div class = "demo">
-             <a href="#">&laquo;</a>
-              <a href="#" class="active">1</a>
-              <a href="#" >2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
-              <a href="#">&raquo;</a>
-              
-           </div>
-        </div>
+     
       </div>
     </div>
   </div>  
