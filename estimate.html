@@ -24,29 +24,16 @@
     <script
     src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $('#header').load('header.html');
+      });
+    </script>
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg fixed-top p-md-0">
-      <div class="container-fluid">
-        <div class="d-md-none menu">
-          <i class="fa-solid fa-bars"></i>
-        </div>
-        <div class="d-none d-md-none close">
-     <i class="fa-solid fa-xmark fa-xl"></i>
-</div>
-        <a class="navbar-brand d-none d-md-block mt-1" href="#">
-      <h2 class="h2">BILL SNAP</h2>
-        </a>
-
-        <div class="d-flex ms-auto gap-4 pe-3">
-       
-      <a>Logout</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+<div id="header"></div>
 
 
 
@@ -92,10 +79,7 @@
             <i class='bx bx-archive-in' ></i>
             <a href="manage.html">Manage Group</a>
           </div>
-          <div>
-            <i class='bx bx-bar-chart' ></i>
-            <a href="pending.html">Pending approvals</a>
-          </div>
+         
           <div>
             <i class='bx bx-message' ></i>
             <a href="message.html">Messaging</a>
@@ -125,54 +109,54 @@
     </div>
     
     <div class="col right" id="customer-list">
-      <h3 class="ps-1 pt-3">Estimates</h3><br>
-      <canvas id="myChart" style="width:100%;max-width:600px"></canvas><br>
+      <canvas id="bar-chart-grouped" width="700" height="300px"></canvas><br><br>
+      <h4>Customer Plans</h4><br>
       <div class="table-responsive">
         <table class="table table-bordered" id='table_filter'>
           <thead>
               <tr>
-                  <th>Estimate id</th>
-                  <th>Task id</th>
-                  <th>Activity</th>
-                  <th>Duration estimate</th>
-                  <th>Notes</th>
+                  <th>Customer Id</th>
+                  <th>Software</th>
+                  <th>Plans</th>
+                  <th>End Date</th>
+                  <th>Status</th>
               </tr>
           </thead>
           <tbody>
               <tr>
                   <td>212 </td>
-                  <td>1-6d</td>
-                  <td>regular</td>
-                  <td>2 days</td>
-                  <td>Done</td> 
+                  <td>VinPus</td>
+                  <td>Yearly</td>
+                  <td>02-09-2023</td>
+                  <td>Paid</td> 
               </tr>
               <tr>
                 <td>123</td>
-                <td>1-5d</td>
-                <td>regular</td>
-                <td>2 days</td>
-                <td>pending</td>           
+                <td>VinPro</td>
+                <td>Monthly</td>
+                <td>21-11-2022</td>
+                <td>Unpaid</td>           
             </tr>
             <tr>
               <td>152 </td>
-              <td>1-8d</td>
-              <td>regular</td>
-              <td>2 days</td>
-              <td>Done</td>    
+              <td>MDAS</td>
+              <td>Yearly</td>
+              <td>14-12-2022</td>
+              <td>Paid</td>    
           </tr>
           <tr>
             <td>129 </td>
-            <td>1-3d</td>
-            <td>regular</td>
-            <td>2 days</td>
-            <td>pending</td> 
+            <td>VinPlus</td>
+            <td>Yearly</td>
+            <td>03-05-2023</td>
+            <td>Paid</td> 
         </tr>
         <tr>
           <td>912 </td>
-          <td>1-6d</td>
-          <td>regular</td>
-          <td>2 days</td>
-          <td>waiting</td>  
+          <td>MDAS</td>
+          <td>Monthly</td>
+          <td>8-04-2022</td>
+          <td>Paid</td>  
       </tr>
       <tr>
         <td>712 </td>
@@ -187,7 +171,31 @@
 
       </div>
 
-
+<script>
+  new Chart(document.getElementById("bar-chart-grouped"), {
+    type: 'bar',
+    data: {
+      labels: ["1999", "2005", "2015", "2020","2025"],
+      datasets: [
+        {
+          label: "Sucesses",
+          backgroundColor: "#3e95cd",
+          data: [633,921,1283,2478,3657]
+        }, {
+          label: "Failure",
+          backgroundColor: "#8e5ea2",
+          data: [408,347,275,174,110]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'BillSnap Growth (millions)'
+      }
+    }
+});
+</script>
 
 
 
@@ -230,7 +238,7 @@
        function drawChart() {
          var data = google.visualization.arrayToDataTable([
          ['Task', 'Hours per Day'],
-         ['Work', 8],
+         ['Orders', 8],
          ['pending', 2],
          ['approval', 4],
          ['waiting', 2],
